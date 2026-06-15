@@ -1,0 +1,44 @@
+// students Greater  than 22
+db.students.find({ age: { $gt: 22 } })
+
+// students enrolled in React
+db.students.find({ course: "react" })
+
+// students their names starts with 'S'
+db.students.find({name: { $regex: "^S" }
+})
+
+// students their age is either 18 or 21
+
+db.students.find({ age: { $in: [18, 21] } })
+
+// students  are NOT using Gmail
+db.students.find({email: { $not: /gmail\.com$/ }
+})
+
+
+//  students enrolled in React and greater than 20
+db.students.find({
+  course: "React",
+  age: { $gt: 20 }
+})
+
+// students enrolled in React or Node.js
+
+db.students.find({
+  $or: [
+    { course: "React" },
+    { course: "Node.js" }
+  ]
+})
+
+
+// Names contains in "x"
+db.students.find({
+  name: { $regex: "x" }
+})
+
+// Emails ending in .edu
+db.students.find({
+  email: { $regex: "\\.edu$"}
+})
