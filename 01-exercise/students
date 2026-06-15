@@ -1,0 +1,39 @@
+//use Dugsiiye //switch and creating database
+
+// for insering
+
+db.students.insertMany([
+    {
+        "name": "Abdirisak",
+        "email": "abdirisak@gmail.com",
+        "age": 21,
+        "course": ["html", "css", "js", "react", "mongoDb"]
+    },
+  
+    {
+        "name": "Nuur",
+        "email": "nuur@gmail.com",
+        "age": 22,
+        "course": ["html", "css", "js", "react", "mongoDb"]
+    },
+    {
+        "name": "jaamac",
+        "email": "jaamac@gmail.com",
+        "age": 23,
+        "course": ["html", "css", "js", "react", "mongoDb"]
+    }
+])
+
+
+//Updating one of the studuents email
+
+db.students.updateOne(
+  { email: "nuur@gmail.com" },
+  { $set: { email: "nuurhasan12@gmail.com" } }
+);
+
+//deleting one of the students
+
+db.students.deleteOne({
+    email: "nuurhasan12@gmail.com"
+})
