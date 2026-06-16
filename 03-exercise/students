@@ -1,0 +1,56 @@
+
+ //students with  name, email, points, courses 
+db.students.insertMany([
+  {
+    name: "Abdirisak",
+    email: "abdirisak@gmail.com",
+    points: 85,
+    courses: ["react", "Sql", "next.js"]
+  },
+  {
+    name: "Ahmed",
+    email: "ahmed@gmail.com",
+    points: 90,
+    courses: ["tailwind", "mongodb"]
+  },
+  {
+    name: "Aisha",
+    email: "aisha@gmail,cin.com",
+    points: 75,
+    courses: ["css", "node.js", "react"]
+  }
+]);
+
+//  updating  one the students email
+db.students.updateOne(
+  { name: "Abdirisak" },
+  { $set: { email: "abdirisak22@gmail.com" } }
+);
+
+// using $inc to increase points
+db.students.updateOne(
+  { name: "Abdirisak" },
+  { $inc: { points: 10 } }
+);
+
+// using $push to add a new course
+db.students.updateOne(
+  { name: "Ahmed" },
+  { $push: { courses: "typescript" } }
+);
+
+//  Using $pull to remove a course
+db.students.updateOne(
+  { name: "Aisha" },
+  { $pull: { courses: "css" } }
+);
+
+// Updating one student, increasing points, and push new course togather 
+db.students.updateOne(
+  { name: "Abdirisak" },
+  {
+    $set: { email: "abdirisak22@gmail.com" },
+    $inc: { points: 5 },
+    $push: { courses: "Javascript" }
+  }
+);
